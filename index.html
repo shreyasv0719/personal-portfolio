@@ -1,0 +1,2907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Shreyas Verma — Aspiring AI/ML Engineer, Developer, and AI Video Creator based in Pune, India. First-year B.Tech CSE (AI/ML) student at Newton School of Technology, ADYPU.">
+  <meta name="author" content="Shreyas Verma">
+  <title>Shreyas Verma · Aspiring AI/ML Engineer &amp; Developer</title>
+  
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & CALM MINIMALIST PALETTE
+       ========================================================================== */
+    :root {
+      /* Peaceful Obsidian & Nocturnal Graphite Surfaces */
+      --bg-canvas: #07090d;
+      --bg-surface: #0c0f16;
+      --bg-card: rgba(14, 18, 26, 0.72);
+      --bg-card-hover: rgba(18, 23, 33, 0.88);
+      --bg-elevated: #151a24;
+      --bg-glass: rgba(10, 13, 19, 0.82);
+
+      /* Soothing Mineral Teal, Jade & Sage Accents */
+      --teal-50: #f0fdfa;
+      --teal-100: #ccfbf1;
+      --teal-200: #99f6e4;
+      --teal-300: #5eead4;
+      --teal-400: #2dd4bf;
+      --teal-500: #14b8a6;
+      --teal-600: #0d9488;
+      --teal-700: #0f766e;
+      --teal-800: #115e59;
+      --teal-900: #042f2e;
+      --teal-deep: #021a19;
+
+      /* Gentle Ambient Glows (Eye-Soothing & Diffuse) */
+      --glow-subtle: rgba(45, 212, 191, 0.06);
+      --glow-medium: rgba(45, 212, 191, 0.14);
+      --glow-ethereal: rgba(45, 212, 191, 0.24);
+      --shadow-ambient: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      --shadow-elevated: 0 20px 45px -12px rgba(0, 0, 0, 0.75);
+      --shadow-glow: 0 0 36px var(--glow-medium);
+
+      /* Calming Silvers, Pearls, and Graphite Typography */
+      --text-pure: #ffffff;
+      --text-pearl: #f8fafc;
+      --text-silver: #cbd5e1;
+      --text-muted: #8b99ae;
+      --text-faint: #505c6e;
+
+      /* Delicate Hairline Borders */
+      --border-subtle: rgba(255, 255, 255, 0.065);
+      --border-medium: rgba(255, 255, 255, 0.12);
+      --border-teal-soft: rgba(45, 212, 191, 0.22);
+      --border-teal-glow: rgba(45, 212, 191, 0.45);
+
+      /* High-Precision Native Typography Stacks */
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+
+      /* Geometry & Smooth Transitions */
+      --container-max: 1160px;
+      --header-height: 70px;
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+      --transition-calm: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================================
+       2. RESET & HARMONIOUS BASE STYLING
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-canvas);
+      color: var(--text-silver);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-canvas);
+      /* Peaceful starry ambient canvas with gentle deep light pools */
+      background-image: 
+        radial-gradient(circle at 18% 14%, rgba(20, 184, 166, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 82% 42%, rgba(13, 148, 136, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 45% 82%, rgba(45, 212, 191, 0.04) 0%, transparent 50%),
+        radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Calming Text Selection */
+    ::selection {
+      background: var(--teal-800);
+      color: var(--teal-100);
+    }
+
+    /* Accessible Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 20px;
+      background: var(--teal-400);
+      color: var(--teal-deep);
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 16px;
+      outline: 2px solid var(--text-pure);
+    }
+
+    /* Gentle Focus States */
+    :focus-visible {
+      outline: 2px solid var(--teal-400);
+      outline-offset: 3px;
+    }
+
+    /* Links & Buttons */
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-calm);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Layout Utility */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.75rem;
+    }
+
+    /* Section Geometry */
+    section {
+      padding: 7rem 0;
+      position: relative;
+    }
+
+    /* Peaceful Section Headers */
+    .section-header {
+      margin-bottom: 3.75rem;
+      text-align: left;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      background: rgba(45, 212, 191, 0.06);
+      border: 1px solid rgba(45, 212, 191, 0.18);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.15rem;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: var(--teal-400);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--teal-400);
+    }
+
+    .section-title {
+      font-size: clamp(2.1rem, 3.6vw, 2.85rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: var(--text-pearl);
+      line-height: 1.15;
+      margin-bottom: 0.95rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.68;
+    }
+
+    /* ==========================================================================
+       3. MINIMALIST FROSTED NAVIGATION BAR
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* Brand Monogram Medallion */
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      text-decoration: none;
+    }
+
+    .monogram-badge {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, rgba(30, 38, 52, 0.85) 0%, rgba(13, 17, 24, 0.95) 100%);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--teal-300);
+      letter-spacing: -0.04em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), var(--shadow-ambient);
+      position: relative;
+      transition: var(--transition-calm);
+    }
+
+    .nav-brand:hover .monogram-badge {
+      border-color: var(--teal-400);
+      box-shadow: 0 0 16px var(--glow-medium);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-pearl);
+      letter-spacing: -0.015em;
+    }
+
+    .brand-role {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Nav Links */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.85rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
+      padding: 0.35rem 0.6rem;
+      border-radius: var(--radius-xs);
+      position: relative;
+      transition: var(--transition-calm);
+    }
+
+    .nav-link:hover {
+      color: var(--text-pearl);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 1.5px;
+      background: var(--teal-400);
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 60%;
+    }
+
+    /* Subtle Nav Action */
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--teal-300);
+      background: rgba(45, 212, 191, 0.06);
+      border: 1px solid rgba(45, 212, 191, 0.24);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      transition: var(--transition-calm);
+    }
+
+    .nav-cta:hover {
+      background: rgba(45, 212, 191, 0.14);
+      border-color: var(--teal-400);
+      color: var(--teal-200);
+      box-shadow: 0 0 16px var(--glow-subtle);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION (PEACEFUL, ATMOSPHERIC & MINIMAL)
+       ========================================================================== */
+    .hero-section {
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--header-height) + 3.5rem);
+      padding-bottom: 5.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 3.75rem;
+      width: 100%;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      background: rgba(45, 212, 191, 0.05);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      padding: 0.4rem 0.95rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.65rem;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--teal-400);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--teal-400);
+      animation: gentlePulse 2.8s infinite;
+    }
+
+    @keyframes gentlePulse {
+      0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+    }
+
+    .hero-headline {
+      font-size: clamp(2.45rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--text-pure);
+      margin-bottom: 1.45rem;
+    }
+
+    .hero-headline .highlight-teal {
+      background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 45%, #99f6e4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-intro {
+      font-size: 1.1rem;
+      color: var(--text-silver);
+      line-height: 1.72;
+      margin-bottom: 1.75rem;
+      max-width: 560px;
+    }
+
+    .hero-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.95rem;
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      width: 100%;
+    }
+
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.77rem;
+      color: var(--text-muted);
+    }
+
+    .meta-chip strong {
+      color: var(--text-silver);
+      font-weight: 500;
+    }
+
+    .meta-divider {
+      color: var(--text-faint);
+    }
+
+    /* Calming Action Buttons */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.15rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.8rem 1.65rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-calm);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+      color: #032322;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(20, 184, 166, 0.26);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
+      box-shadow: 0 6px 28px rgba(45, 212, 191, 0.38);
+      transform: translateY(-2px);
+      color: #011413;
+    }
+
+    .btn-secondary {
+      background: rgba(18, 23, 33, 0.75);
+      color: var(--text-pearl);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(26, 33, 47, 0.85);
+      border-color: var(--teal-500);
+      color: var(--text-pure);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-ambition-banner {
+      background: rgba(14, 18, 26, 0.55);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--teal-500);
+      padding: 0.8rem 1.1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: 560px;
+    }
+
+    .hero-ambition-banner strong {
+      color: var(--teal-300);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       ZEN CELESTIAL ORB (RIGHT COLUMN) — PURE CSS 3D ARTWORK
+       ========================================================================== */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      perspective: 1000px;
+    }
+
+    .visual-stage {
+      position: relative;
+      width: 370px;
+      height: 370px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Soothing Ambient Aurora Glow */
+    .stage-glow {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.18) 0%, rgba(13, 148, 136, 0.05) 50%, transparent 72%);
+      filter: blur(36px);
+      z-index: 1;
+      animation: sereneBreathe 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes sereneBreathe {
+      0% { transform: scale(0.92); opacity: 0.6; }
+      100% { transform: scale(1.06); opacity: 0.95; }
+    }
+
+    /* Frosted Architectural Minimalist Frame */
+    .stage-frame {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-lg);
+      background: rgba(12, 16, 23, 0.45);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      z-index: 2;
+    }
+
+    .frame-corner {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: var(--teal-400);
+      border-style: solid;
+      opacity: 0.75;
+    }
+    .corner-tl { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
+    .corner-tr { top: -1px; right: -1px; border-width: 1.5px 1.5px 0 0; }
+    .corner-bl { bottom: -1px; left: -1px; border-width: 0 0 1.5px 1.5px; }
+    .corner-br { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
+
+    /* Ethereal Orbital Geometry Rings */
+    .stage-ring {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .ring-outer {
+      width: 310px;
+      height: 310px;
+      transform: rotateX(66deg) rotateY(-22deg);
+      border: 1px dashed rgba(45, 212, 191, 0.32);
+      animation: orbitSpin 38s linear infinite;
+    }
+
+    .ring-middle {
+      width: 235px;
+      height: 235px;
+      transform: rotateX(72deg) rotateY(34deg);
+      border: 1px solid rgba(203, 213, 225, 0.2);
+      animation: orbitSpinReverse 30s linear infinite;
+    }
+
+    .ring-inner {
+      width: 165px;
+      height: 165px;
+      transform: rotateX(54deg) rotateY(-38deg);
+      border: 1px dashed rgba(45, 212, 191, 0.42);
+      animation: orbitSpin 24s linear infinite;
+    }
+
+    @keyframes orbitSpin {
+      0% { transform: rotateX(66deg) rotateY(-22deg) rotateZ(0deg); }
+      100% { transform: rotateX(66deg) rotateY(-22deg) rotateZ(360deg); }
+    }
+
+    @keyframes orbitSpinReverse {
+      0% { transform: rotateX(72deg) rotateY(34deg) rotateZ(360deg); }
+      100% { transform: rotateX(72deg) rotateY(34deg) rotateZ(0deg); }
+    }
+
+    /* Silky Luminous Sphere */
+    .metallic-orb {
+      position: relative;
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 34% 30%, #e6fffa 0%, #5eead4 16%, #14b8a6 38%, #0d9488 62%, #063533 82%, #021616 100%);
+      box-shadow: 
+        inset -10px -10px 22px rgba(0, 0, 0, 0.85),
+        inset 6px 6px 14px rgba(255, 255, 255, 0.32),
+        0 18px 45px rgba(0, 0, 0, 0.88),
+        0 0 46px rgba(45, 212, 191, 0.24);
+      z-index: 4;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-visual:hover .metallic-orb {
+      transform: scale(1.05) translateY(-3px);
+    }
+
+    .orb-equator {
+      position: absolute;
+      top: 50%;
+      left: -8%;
+      width: 116%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+      transform: translateY(-50%) rotate(-18deg);
+      box-shadow: 0 0 6px rgba(45, 212, 191, 0.7);
+    }
+
+    /* Floating Frosted Glass Telemetry Badges */
+    .telemetry-chip {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      background: rgba(14, 18, 26, 0.88);
+      border: 1px solid var(--border-medium);
+      padding: 0.38rem 0.75rem;
+      border-radius: var(--radius-sm);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      color: var(--text-silver);
+      box-shadow: var(--shadow-ambient);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      white-space: nowrap;
+      transition: var(--transition-calm);
+    }
+
+    .telemetry-chip:hover {
+      border-color: var(--teal-400);
+      box-shadow: 0 4px 18px var(--glow-subtle);
+    }
+
+    .chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--teal-400);
+      box-shadow: 0 0 5px var(--teal-400);
+    }
+
+    .chip-pos-1 { top: 16px; left: -10px; animation: gentleFloat 5s ease-in-out infinite alternate; }
+    .chip-pos-2 { top: 36px; right: -24px; animation: gentleFloat 6s ease-in-out 1s infinite alternate; }
+    .chip-pos-3 { bottom: 30px; left: -14px; animation: gentleFloat 5.5s ease-in-out 0.5s infinite alternate; }
+    .chip-pos-4 { bottom: 16px; right: -10px; animation: gentleFloat 6.5s ease-in-out 1.5s infinite alternate; }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-6px); }
+    }
+
+    /* ==========================================================================
+       5. SKILLS SECTION ("MY CURRENT TOOLKIT")
+       ========================================================================== */
+    .skills-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 23, 0.45) 50%, transparent 100%);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .skill-category-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.15rem;
+      position: relative;
+      transition: var(--transition-calm);
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+    }
+
+    .skill-category-card:hover {
+      border-color: var(--border-teal-soft);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-ambient), 0 0 24px var(--glow-subtle);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.35rem;
+      padding-bottom: 0.95rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .card-icon-title {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .category-glyph {
+      width: 32px;
+      height: 32px;
+      background: rgba(45, 212, 191, 0.07);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal-300);
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .category-name {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--text-pearl);
+    }
+
+    .category-tag {
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+    }
+
+    .skill-items-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .skill-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .skill-item-name {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-pure);
+    }
+
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      font-weight: 500;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .status-learning {
+      background: rgba(45, 212, 191, 0.09);
+      color: var(--teal-300);
+      border: 1px solid rgba(45, 212, 191, 0.26);
+    }
+
+    .status-active {
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--text-silver);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .skill-item-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .concept-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.45rem;
+    }
+
+    .concept-pill {
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      background: rgba(9, 12, 18, 0.75);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-silver);
+      padding: 0.22rem 0.52rem;
+      border-radius: var(--radius-xs);
+      transition: var(--transition-calm);
+    }
+
+    .concept-pill:hover {
+      border-color: var(--teal-500);
+      color: var(--teal-200);
+    }
+
+    /* ==========================================================================
+       6. EXPERIENCE SECTION ("EXPERIENCE & PRACTICAL WORK")
+       ========================================================================== */
+    .experience-section {
+      position: relative;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .timeline-container::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 20px;
+      left: 20px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--teal-500) 0%, rgba(45, 212, 191, 0.12) 85%, transparent 100%);
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: 11px;
+      top: 6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-canvas);
+      border: 2px solid var(--teal-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px var(--glow-medium);
+      transition: var(--transition-calm);
+    }
+
+    .timeline-node::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal-400);
+    }
+
+    .timeline-entry:hover .timeline-node {
+      transform: scale(1.18);
+      box-shadow: 0 0 16px var(--teal-400);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.1rem;
+      transition: var(--transition-calm);
+      position: relative;
+      backdrop-filter: blur(12px);
+    }
+
+    .timeline-card:hover {
+      border-color: var(--border-teal-soft);
+      background: var(--bg-card-hover);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .entry-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .entry-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text-pearl);
+    }
+
+    .entry-organization {
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--teal-300);
+    }
+
+    .entry-meta {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-bottom: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .entry-meta-badge {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .entry-bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .entry-bullet {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: 0.92rem;
+      color: var(--text-silver);
+      line-height: 1.58;
+    }
+
+    .entry-bullet::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--teal-400);
+      font-size: 0.95rem;
+    }
+
+    .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .entry-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      color: var(--text-muted);
+      background: rgba(9, 12, 18, 0.75);
+      border: 1px solid var(--border-subtle);
+      padding: 0.2rem 0.58rem;
+      border-radius: var(--radius-xs);
+    }
+
+    /* ==========================================================================
+       7. PROJECTS SECTION ("THINGS I'VE BEEN BUILDING")
+       ========================================================================== */
+    .projects-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 23, 0.6) 50%, transparent 100%);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: var(--transition-calm);
+      box-shadow: var(--shadow-ambient);
+      backdrop-filter: blur(14px);
+    }
+
+    .project-card:hover {
+      border-color: var(--border-teal-soft);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-elevated), 0 0 32px var(--glow-subtle);
+    }
+
+    .project-card.layout-reversed {
+      grid-template-columns: 1fr 1fr;
+    }
+    .project-card.layout-reversed .project-info {
+      order: 1;
+    }
+    .project-card.layout-reversed .project-visual-pane {
+      order: 2;
+    }
+
+    .project-info {
+      padding: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .project-category {
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-300);
+    }
+
+    .project-flag {
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.25);
+      color: var(--teal-200);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-full);
+    }
+
+    .project-name {
+      font-size: 1.68rem;
+      font-weight: 700;
+      color: var(--text-pure);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      font-size: 0.97rem;
+      color: var(--text-silver);
+      line-height: 1.68;
+      margin-bottom: 1.75rem;
+    }
+
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      background: rgba(9, 12, 18, 0.8);
+      border: 1px solid var(--border-medium);
+      color: var(--text-silver);
+      padding: 0.28rem 0.62rem;
+      border-radius: var(--radius-xs);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: var(--text-pearl);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-medium);
+      padding: 0.52rem 1.05rem;
+      border-radius: var(--radius-xs);
+      transition: var(--transition-calm);
+    }
+
+    .project-link-btn:hover {
+      background: rgba(45, 212, 191, 0.12);
+      border-color: var(--teal-400);
+      color: var(--teal-200);
+    }
+
+    .placeholder-badge {
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      color: var(--text-faint);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .project-visual-pane {
+      background: #090c12;
+      border-left: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+    }
+
+    .project-card.layout-reversed .project-visual-pane {
+      border-left: none;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       CUSTOM CSS ARTWORK 1: LATE-NIGHT DETECTIVE CLI TERMINAL
+       ========================================================================== */
+    .terminal-container {
+      width: 100%;
+      max-width: 440px;
+      background: #080a0e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.77rem;
+      position: relative;
+    }
+
+    .terminal-titlebar {
+      background: #10141d;
+      padding: 0.6rem 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .terminal-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .term-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .term-dot-red { background: #e06c75; opacity: 0.75; }
+    .term-dot-yellow { background: #e5c07b; opacity: 0.75; }
+    .term-dot-green { background: #98c379; opacity: 0.75; }
+
+    .terminal-title {
+      color: var(--text-muted);
+      font-size: 0.68rem;
+    }
+
+    .terminal-body {
+      padding: 1.15rem;
+      color: var(--text-silver);
+      line-height: 1.65;
+    }
+
+    .term-line {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .term-ln {
+      color: var(--text-faint);
+      user-select: none;
+      width: 18px;
+      text-align: right;
+    }
+
+    .t-cmd { color: var(--teal-300); }
+    .t-accent { color: var(--teal-400); font-weight: 600; }
+    .t-muted { color: var(--text-faint); }
+    .t-alert { color: #facc15; }
+    .t-success { color: #34d399; font-weight: 600; }
+
+    .terminal-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 13px;
+      background: var(--teal-400);
+      vertical-align: middle;
+      margin-left: 4px;
+      box-shadow: 0 0 6px var(--teal-400);
+      animation: calmBlink 1.1s infinite;
+    }
+
+    @keyframes calmBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* ==========================================================================
+       CUSTOM CSS ARTWORK 2: BLOOM PIXEL 3D-PRINTING CRYSTALLINE SCULPTURE
+       ========================================================================== */
+    .bloom-stage {
+      width: 100%;
+      height: 100%;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .print-bed {
+      position: relative;
+      width: 250px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .print-pedestal {
+      position: absolute;
+      bottom: 24px;
+      width: 190px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.24) 0%, rgba(13, 20, 32, 0.85) 68%, transparent 100%);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      box-shadow: 0 0 24px rgba(45, 212, 191, 0.2);
+    }
+
+    .print-sculpture {
+      position: relative;
+      width: 112px;
+      height: 142px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sculpture-facet {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.32) 0%, rgba(13, 148, 136, 0.12) 100%);
+      clip-path: polygon(50% 0%, 100% 25%, 85% 75%, 50% 100%, 15% 75%, 0% 25%);
+      border: 1px solid rgba(45, 212, 191, 0.45);
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(45, 212, 191, 0.22) 0px,
+        rgba(45, 212, 191, 0.22) 2px,
+        transparent 2px,
+        transparent 6px
+      );
+      box-shadow: inset 0 0 16px rgba(45, 212, 191, 0.25);
+    }
+
+    .sculpture-core {
+      width: 52px;
+      height: 72px;
+      background: linear-gradient(180deg, #5eead4 0%, #0d9488 100%);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      box-shadow: 0 0 24px rgba(45, 212, 191, 0.55);
+      z-index: 2;
+      animation: calmGlow 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes calmGlow {
+      0% { filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.35)); }
+      100% { filter: drop-shadow(0 0 20px rgba(45, 212, 191, 0.85)); }
+    }
+
+    .print-hud {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      color: var(--teal-300);
+      background: rgba(8, 11, 16, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       CUSTOM CSS ARTWORK 3: PEACEFUL 9:16 CINEMATIC AI REEL
+       ========================================================================== */
+    .video-mockup-frame {
+      width: 185px;
+      height: 315px;
+      background: #05070a;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(20, 184, 166, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    .video-mockup-frame::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 3.5px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+    }
+
+    .video-top-meta {
+      margin-top: 0.55rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      color: var(--teal-300);
+    }
+
+    .video-center-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.15rem;
+      margin: auto 0;
+    }
+
+    .video-play-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(45, 212, 191, 0.14);
+      border: 1px solid var(--teal-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px var(--glow-medium);
+      transition: var(--transition-calm);
+    }
+
+    .video-play-btn::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 11px solid var(--text-pure);
+      margin-left: 2px;
+    }
+
+    .video-waveform {
+      display: flex;
+      align-items: center;
+      gap: 3.5px;
+      height: 24px;
+    }
+
+    .wave-bar {
+      width: 3px;
+      background: var(--teal-400);
+      border-radius: 2px;
+      opacity: 0.85;
+      transform-origin: bottom;
+    }
+    .wb-1 { height: 8px; animation: calmWave 1.4s ease-in-out infinite alternate; }
+    .wb-2 { height: 18px; animation: calmWave 1.1s ease-in-out 0.2s infinite alternate; }
+    .wb-3 { height: 24px; animation: calmWave 1.5s ease-in-out 0.4s infinite alternate; }
+    .wb-4 { height: 14px; animation: calmWave 1.0s ease-in-out 0.1s infinite alternate; }
+    .wb-5 { height: 20px; animation: calmWave 1.3s ease-in-out 0.3s infinite alternate; }
+    .wb-6 { height: 10px; animation: calmWave 1.2s ease-in-out 0.5s infinite alternate; }
+
+    @keyframes calmWave {
+      0% { transform: scaleY(0.45); opacity: 0.55; }
+      100% { transform: scaleY(1.1); opacity: 1; }
+    }
+
+    .video-bottom-caption {
+      font-size: 0.71rem;
+      color: var(--text-silver);
+      background: rgba(10, 14, 20, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 0.5rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .scrubber-track {
+      width: 100%;
+      height: 2.5px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+      margin-top: 0.4rem;
+      position: relative;
+    }
+
+    .scrubber-progress {
+      width: 65%;
+      height: 100%;
+      background: var(--teal-400);
+      border-radius: 2px;
+      box-shadow: 0 0 6px var(--teal-400);
+    }
+
+    /* ==========================================================================
+       CUSTOM CSS ARTWORK 4: DEV CLUB BROWSER INTERFACE
+       ========================================================================== */
+    .browser-mockup {
+      width: 100%;
+      max-width: 420px;
+      background: #080a0f;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .browser-bar {
+      background: #10131b;
+      padding: 0.55rem 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .browser-url {
+      flex: 1;
+      background: #07090e;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xs);
+      padding: 0.2rem 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .browser-content {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .mock-hero-strip {
+      height: 46px;
+      background: linear-gradient(90deg, rgba(20, 184, 166, 0.18) 0%, rgba(13, 20, 32, 0.6) 100%);
+      border: 1px solid rgba(45, 212, 191, 0.22);
+      border-radius: var(--radius-xs);
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mock-title-line {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-pure);
+    }
+
+    .mock-badge {
+      font-family: var(--font-mono);
+      font-size: 0.61rem;
+      background: var(--teal-500);
+      color: #032322;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+    }
+
+    .mock-grid-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    .mock-mini-card {
+      background: #0e1219;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xs);
+      padding: 0.65rem;
+      font-size: 0.68rem;
+      color: var(--text-silver);
+    }
+
+    .mock-code-line {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.09);
+      border-radius: 2px;
+      margin-top: 5px;
+    }
+    .mcl-short { width: 48%; }
+    .mcl-med { width: 72%; }
+
+    /* ==========================================================================
+       8. CURRENT FOCUS SECTION ("ALWAYS EXPLORING. ALWAYS IMPROVING.")
+       ========================================================================== */
+    .focus-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 16, 23, 0.35) 100%);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .focus-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.85rem;
+    }
+
+    .focus-group-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.35rem;
+      transition: var(--transition-calm);
+      backdrop-filter: blur(12px);
+    }
+
+    .focus-group-card:hover {
+      border-color: var(--border-teal-soft);
+      background: var(--bg-card-hover);
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .focus-group-title {
+      font-size: 1.14rem;
+      font-weight: 700;
+      color: var(--text-pearl);
+      margin-bottom: 1.55rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .focus-group-title::before {
+      content: "◈";
+      color: var(--teal-300);
+      font-size: 0.88rem;
+    }
+
+    .focus-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .focus-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .focus-number {
+      font-family: var(--font-mono);
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--teal-300);
+      background: rgba(45, 212, 191, 0.07);
+      border: 1px solid rgba(45, 212, 191, 0.18);
+      width: 25px;
+      height: 25px;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .focus-text-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .focus-text-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text-pure);
+      line-height: 1.38;
+    }
+
+    .focus-text-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.52;
+    }
+
+    /* ==========================================================================
+       9. CONTACT SECTION & FOOTER (SERENE & INVITING)
+       ========================================================================== */
+    .contact-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(13, 148, 136, 0.07) 50%, rgba(7, 9, 13, 0.95) 100%);
+      border-top: 1px solid var(--border-subtle);
+      padding-bottom: 4.5rem;
+    }
+
+    .contact-card-main {
+      background: linear-gradient(135deg, rgba(18, 23, 32, 0.92) 0%, rgba(11, 15, 22, 0.96) 100%);
+      border: 1px solid rgba(45, 212, 191, 0.22);
+      border-radius: var(--radius-lg);
+      padding: 3.75rem;
+      box-shadow: var(--shadow-elevated), 0 0 50px rgba(20, 184, 166, 0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .contact-card-main::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--teal-400) 50%, transparent 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.25rem;
+      align-items: center;
+    }
+
+    .contact-heading-box .contact-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-title {
+      font-size: clamp(2.1rem, 3.8vw, 2.9rem);
+      font-weight: 800;
+      color: var(--text-pure);
+      line-height: 1.16;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-lead {
+      font-size: 1.05rem;
+      color: var(--text-silver);
+      line-height: 1.68;
+      margin-bottom: 1.85rem;
+    }
+
+    .contact-academic-badge {
+      background: rgba(9, 12, 18, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--teal-400);
+      padding: 0.8rem 1.1rem;
+      border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .contact-academic-badge strong {
+      color: var(--text-pearl);
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.05rem;
+    }
+
+    .channel-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: var(--transition-calm);
+      text-decoration: none;
+    }
+
+    .channel-box:hover {
+      border-color: var(--teal-400);
+      background: var(--bg-elevated);
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px var(--glow-subtle);
+    }
+
+    .channel-left {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+    }
+
+    .channel-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(45, 212, 191, 0.07);
+      border: 1px solid rgba(45, 212, 191, 0.22);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal-300);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .channel-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .channel-label {
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .channel-value {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--text-pearl);
+    }
+
+    .channel-arrow {
+      color: var(--text-faint);
+      font-size: 1.1rem;
+      transition: var(--transition-calm);
+    }
+
+    .channel-box:hover .channel-arrow {
+      color: var(--teal-400);
+      transform: translateX(3px);
+    }
+
+    /* Minimalist Footer */
+    .site-footer {
+      padding: 3.75rem 0 2.5rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+
+    .footer-quote {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-pearl);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+
+    /* ==========================================================================
+       10. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ==========================================================================
+       11. RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .hero-content {
+        align-items: flex-start;
+      }
+      .hero-visual {
+        min-height: 380px;
+      }
+      .project-card, 
+      .project-card.layout-reversed {
+        grid-template-columns: 1fr;
+      }
+      .project-card.layout-reversed .project-info {
+        order: 2;
+      }
+      .project-card.layout-reversed .project-visual-pane {
+        order: 1;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .project-visual-pane {
+        border-left: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 3rem 1.5rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4.75rem 0;
+      }
+      .nav-menu {
+        gap: 0.85rem;
+      }
+      .nav-link {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.45rem;
+      }
+      .brand-meta {
+        display: none;
+      }
+      .nav-cta {
+        display: none;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .focus-columns {
+        grid-template-columns: 1fr;
+      }
+      .contact-card-main {
+        padding: 2.25rem 1.5rem;
+      }
+      .project-info {
+        padding: 1.85rem 1.35rem;
+      }
+      .timeline-entry {
+        padding-left: 45px;
+      }
+      .timeline-container::before {
+        left: 14px;
+      }
+      .timeline-node {
+        left: 5px;
+      }
+      .timeline-card {
+        padding: 1.5rem;
+      }
+      .telemetry-chip {
+        display: none;
+      }
+      .visual-stage {
+        width: 300px;
+        height: 300px;
+      }
+      .stage-ring.ring-outer {
+        width: 260px;
+        height: 260px;
+      }
+      .metallic-orb {
+        width: 104px;
+        height: 104px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 2.15rem;
+      }
+      .nav-menu {
+        gap: 0.45rem;
+      }
+      .nav-link {
+        font-size: 0.74rem;
+        padding: 0.25rem 0.35rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-actions .btn {
+        width: 100%;
+      }
+      .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Shreyas Verma Portfolio Home">
+        <div class="monogram-badge">SV</div>
+        <div class="brand-meta">
+          <span class="brand-name">Shreyas Verma</span>
+          <span class="brand-role">Pune, India</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#focus" class="nav-link">Focus</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Direct Header Action -->
+      <a href="#contact" class="nav-cta">Let's Connect</a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- ========================================================================
+         HERO SECTION (PEACEFUL & ATMOSPHERIC)
+         ======================================================================== -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Hero Narrative -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              ASPIRING AI/ML ENGINEER · DEVELOPER · AI VIDEO CREATOR
+            </div>
+
+            <h1 id="hero-heading" class="hero-headline">
+              Curious by nature.<br>
+              <span class="highlight-teal">Building with technology.</span>
+            </h1>
+
+            <p class="hero-intro">
+              I'm Shreyas Verma, a Computer Science student exploring artificial intelligence, software development, and creative AI-powered content. I enjoy learning through hands-on coding, experimenting with new tools, and turning ideas into projects.
+            </p>
+
+            <div class="hero-meta-strip">
+              <div class="meta-chip">
+                <span>Location:</span>
+                <strong>Pune, Maharashtra, India</strong>
+              </div>
+              <span class="meta-divider" aria-hidden="true">·</span>
+              <div class="meta-chip">
+                <span>Education:</span>
+                <strong>First-year B.Tech CSE (AI/ML) · Newton School of Technology, ADYPU</strong>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                Explore My Work
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                Let's Connect
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="hero-ambition-banner">
+              <strong>Long-term Ambitions:</strong> To become an excellent AI/ML engineer, explore Generative AI and software development, build impactful technology products, and eventually launch my own technology startup.
+            </div>
+          </div>
+
+          <!-- Right Column: Zen Celestial Sphere & Luminous Orbit Geometry -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-stage">
+              
+              <!-- Diffuse Ambient Light Spill -->
+              <div class="stage-glow"></div>
+
+              <!-- Frosted Glass Architecture Frame -->
+              <div class="stage-frame">
+                <span class="frame-corner corner-tl"></span>
+                <span class="frame-corner corner-tr"></span>
+                <span class="frame-corner corner-bl"></span>
+                <span class="frame-corner corner-br"></span>
+              </div>
+
+              <!-- Rotating Orbital Ellipses -->
+              <div class="stage-ring ring-outer"></div>
+              <div class="stage-ring ring-middle"></div>
+              <div class="stage-ring ring-inner"></div>
+
+              <!-- Luminous Pearl-Teal Celestial Sphere -->
+              <div class="metallic-orb">
+                <div class="orb-equator"></div>
+              </div>
+
+              <!-- Frosted Monospace Telemetry Badges -->
+              <div class="telemetry-chip chip-pos-1">
+                <span class="chip-dot"></span>
+                status: active_learning
+              </div>
+
+              <div class="telemetry-chip chip-pos-2">
+                <span>◈</span>
+                model: exploring_ai
+              </div>
+
+              <div class="telemetry-chip chip-pos-3">
+                <span>λ</span>
+                python: core_fundamentals
+              </div>
+
+              <div class="telemetry-chip chip-pos-4">
+                <span>⬡</span>
+                loc: 18.5204° N, 73.8567° E
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SKILLS SECTION ("MY CURRENT TOOLKIT")
+         ======================================================================== -->
+    <section id="skills" class="skills-section" aria-labelledby="skills-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-eyebrow">Capabilities &amp; Tools</div>
+          <h2 id="skills-heading" class="section-title">My Current Toolkit</h2>
+          <p class="section-subtitle">
+            An honest overview of programming fundamentals I am actively mastering and modern developer tools I have used in real projects.
+          </p>
+        </header>
+
+        <div class="skills-grid">
+
+          <!-- Category 1: Programming -->
+          <article class="skill-category-card">
+            <div class="card-top-row">
+              <div class="card-icon-title">
+                <div class="category-glyph">λ</div>
+                <h3 class="category-name">Programming</h3>
+              </div>
+              <span class="category-tag">Core Logic</span>
+            </div>
+
+            <ul class="skill-items-list">
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Python</span>
+                  <span class="status-badge status-learning">Currently Learning</span>
+                </div>
+                <p class="skill-item-desc">
+                  Building strong foundations in Python programming syntax, procedural structure, and modular problem-solving.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Programming Fundamentals</span>
+                  <span class="status-badge status-active">Active Practice</span>
+                </div>
+                <p class="skill-item-desc">
+                  Applying computer science building blocks to develop console algorithms and game logic.
+                </p>
+                <div class="concept-tags">
+                  <span class="concept-pill">Variables &amp; I/O</span>
+                  <span class="concept-pill">Conditionals</span>
+                  <span class="concept-pill">Loops</span>
+                  <span class="concept-pill">Functions</span>
+                  <span class="concept-pill">Recursion</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Category 2: AI and Generative AI -->
+          <article class="skill-category-card">
+            <div class="card-top-row">
+              <div class="card-icon-title">
+                <div class="category-glyph">◈</div>
+                <h3 class="category-name">AI &amp; Generative AI</h3>
+              </div>
+              <span class="category-tag">Applied Workflows</span>
+            </div>
+
+            <ul class="skill-items-list">
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">AI Tools &amp; AI-Assisted Workflows</span>
+                  <span class="status-badge status-active">Applied Tools</span>
+                </div>
+                <p class="skill-item-desc">
+                  Integrating state-of-the-art AI systems into daily programming routines for enhanced research and code iteration.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Generative AI Tools</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Experimenting with cutting-edge multimodal tools for code generation, interface design, and asset synthesis.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Prompt Design &amp; Prototyping</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Iterative prompt crafting, specification testing, and AI-assisted prototyping for fast proof-of-concept building.
+                </p>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Category 3: Web Development and Developer Tools -->
+          <article class="skill-category-card">
+            <div class="card-top-row">
+              <div class="card-icon-title">
+                <div class="category-glyph">⌘</div>
+                <h3 class="category-name">Web Dev &amp; Developer Tools</h3>
+              </div>
+              <span class="category-tag">Environment</span>
+            </div>
+
+            <ul class="skill-items-list">
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">HTML &amp; CSS</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Website development, semantic layout structure, CSS Grid, Flexbox, and responsive UI experimentation.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Git &amp; GitHub</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Version control, commit hygiene, repository management, and GitHub CLI command-line workflows.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Visual Studio Code &amp; Vercel Deployment</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Configured local development workspace in VS Code and continuous deployment hosting via Vercel.
+                </p>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Category 4: AI Video Creation -->
+          <article class="skill-category-card">
+            <div class="card-top-row">
+              <div class="card-icon-title">
+                <div class="category-glyph">▶</div>
+                <h3 class="category-name">AI Video Creation</h3>
+              </div>
+              <span class="category-tag">Creative Media</span>
+            </div>
+
+            <ul class="skill-items-list">
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Short-Form AI Videos</span>
+                  <span class="status-badge status-active">Active Creation</span>
+                </div>
+                <p class="skill-item-desc">
+                  Creating short-form AI-related videos exploring artificial intelligence principles, tools, and interesting ideas.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Exploring AI-Assisted Content Creation</span>
+                  <span class="status-badge status-learning">Currently Exploring</span>
+                </div>
+                <p class="skill-item-desc">
+                  Exploring voice synthesis, generative imagery, and AI-powered scripting pipelines for multimedia creation.
+                </p>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Visual Storytelling &amp; Tech Content</span>
+                  <span class="status-badge status-active">Practical Use</span>
+                </div>
+                <p class="skill-item-desc">
+                  Structuring technology-focused content into visual narratives that spark curiosity and engage tech-minded audiences.
+                </p>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         EXPERIENCE SECTION ("EXPERIENCE & PRACTICAL WORK")
+         ======================================================================== -->
+    <section id="experience" class="experience-section" aria-labelledby="experience-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-eyebrow">Hands-on Practice</div>
+          <h2 id="experience-heading" class="section-title">Experience &amp; Practical Work</h2>
+          <p class="section-subtitle">
+            Internship experience, self-directed engineering initiatives, and creative technology storytelling.
+          </p>
+        </header>
+
+        <div class="timeline-container">
+
+          <!-- Entry 1: InAmigos Internship -->
+          <article class="timeline-entry">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="entry-header">
+                <h3 class="entry-title">AI Web Development Intern</h3>
+                <span class="entry-organization">InAmigos</span>
+              </div>
+              <div class="entry-meta">
+                <span class="entry-meta-badge">One-Month Internship</span>
+                <span>·</span>
+                <span>Internship Experience</span>
+              </div>
+              <ul class="entry-bullet-list">
+                <li class="entry-bullet">
+                  Participated in a one-month AI web development internship.
+                </li>
+                <li class="entry-bullet">
+                  Worked on an AI-related website project.
+                </li>
+                <li class="entry-bullet">
+                  Contributed to UX review and homepage design using Figma.
+                </li>
+              </ul>
+              <div class="entry-tags">
+                <span class="entry-tag-pill">AI Web Development</span>
+                <span class="entry-tag-pill">Figma</span>
+                <span class="entry-tag-pill">UX Review</span>
+                <span class="entry-tag-pill">Homepage Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Entry 2: Independent Web Development -->
+          <article class="timeline-entry">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="entry-header">
+                <h3 class="entry-title">Independent Web Development</h3>
+                <span class="entry-organization">Self-Directed Practice</span>
+              </div>
+              <div class="entry-meta">
+                <span class="entry-meta-badge">Hands-On Practice</span>
+                <span>·</span>
+                <span>Personal Projects</span>
+              </div>
+              <ul class="entry-bullet-list">
+                <li class="entry-bullet">
+                  Built website projects using VS Code and AI-assisted tools.
+                </li>
+                <li class="entry-bullet">
+                  Practiced Git and GitHub workflows.
+                </li>
+                <li class="entry-bullet">
+                  Deployed websites using Vercel.
+                </li>
+                <li class="entry-bullet">
+                  Explored web design and frontend development through hands-on projects.
+                </li>
+              </ul>
+              <div class="entry-tags">
+                <span class="entry-tag-pill">HTML &amp; CSS</span>
+                <span class="entry-tag-pill">VS Code</span>
+                <span class="entry-tag-pill">Git &amp; GitHub</span>
+                <span class="entry-tag-pill">Vercel Deployment</span>
+                <span class="entry-tag-pill">Frontend Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Entry 3: AI Video Creator -->
+          <article class="timeline-entry">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="entry-header">
+                <h3 class="entry-title">AI Video Creator</h3>
+                <span class="entry-organization">Creative Media</span>
+              </div>
+              <div class="entry-meta">
+                <span class="entry-meta-badge">Creative Exploration</span>
+                <span>·</span>
+                <span>Independent Creator</span>
+              </div>
+              <ul class="entry-bullet-list">
+                <li class="entry-bullet">
+                  Create short-form videos about artificial intelligence, technology, and interesting ideas.
+                </li>
+                <li class="entry-bullet">
+                  Experiment with AI tools and visual storytelling.
+                </li>
+              </ul>
+              <div class="entry-tags">
+                <span class="entry-tag-pill">Short-form Video</span>
+                <span class="entry-tag-pill">Visual Storytelling</span>
+                <span class="entry-tag-pill">AI Tools</span>
+                <span class="entry-tag-pill">Technology Content</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PROJECTS SECTION ("THINGS I'VE BEEN BUILDING")
+         ======================================================================== -->
+    <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-eyebrow">Featured Creations</div>
+          <h2 id="projects-heading" class="section-title">Things I've Been Building</h2>
+          <p class="section-subtitle">
+            A showcase of my programming milestone, web concepts, and creative experiments. Each project represents hands-on exploration.
+          </p>
+        </header>
+
+        <div class="projects-stack">
+
+          <!-- PROJECT 1: MINI SHERLOCK (First Self-Coded Python CLI Game) -->
+          <article class="project-card">
+            <div class="project-info">
+              <div>
+                <div class="project-header-top">
+                  <span class="project-category">Python CLI &amp; Logic</span>
+                  <span class="project-flag">★ Milestone: First Self-Coded Game</span>
+                </div>
+                <h3 class="project-name">Mini Sherlock — My First Self-Coded Python CLI Game</h3>
+                <p class="project-description">
+                  A command-line detective game built independently in Python using the programming concepts I've learned so far. Players investigate clues, make decisions, and solve a mystery through text-based interaction.
+                </p>
+                <div class="tech-stack-row">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Variables and input/output</span>
+                  <span class="tech-tag">Conditionals</span>
+                  <span class="tech-tag">Loops</span>
+                  <span class="tech-tag">Functions</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreyasv0719/mini-sherlock-first-own-coded-" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <span>View on GitHub</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Custom CSS Artwork: Late-Night Detective CLI Terminal -->
+            <div class="project-visual-pane" aria-hidden="true">
+              <div class="terminal-container">
+                <div class="terminal-titlebar">
+                  <div class="terminal-controls">
+                    <span class="term-dot term-dot-red"></span>
+                    <span class="term-dot term-dot-yellow"></span>
+                    <span class="term-dot term-dot-green"></span>
+                  </div>
+                  <div class="terminal-title">mini_sherlock.py — python3</div>
+                  <div class="terminal-title" style="color: var(--teal-300);">[CASE 001]</div>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-line">
+                    <span class="term-ln">01</span>
+                    <span><span class="t-muted">$</span> <span class="t-cmd">python3</span> mini_sherlock.py</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">02</span>
+                    <span class="t-accent">=== MINI SHERLOCK: CASE #001 ===</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">03</span>
+                    <span class="t-muted">Investigating the Victorian Manor Mystery...</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">04</span>
+                    <span>&gt; Clue 1: Antique clock halted at 02:47 AM</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">05</span>
+                    <span>&gt; Clue 2: Encrypted cipher found in study desk</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">06</span>
+                    <span><span class="t-alert">[DECISION]</span> 1: Question Guard | 2: Decrypt</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">07</span>
+                    <span>&gt; User selection: 2</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">08</span>
+                    <span class="t-success">✓ Logic check passed: Cipher decoded!</span>
+                  </div>
+                  <div class="term-line">
+                    <span class="term-ln">09</span>
+                    <span class="t-muted">Mystery solved through functions.<span class="terminal-cursor"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: BLOOM PIXEL (3D-Printing E-Commerce Concept) -->
+          <article class="project-card layout-reversed">
+            <div class="project-info">
+              <div>
+                <div class="project-header-top">
+                  <span class="project-category">E-commerce and Web Development</span>
+                  <span class="project-flag">Concept Design</span>
+                </div>
+                <h3 class="project-name">Bloom Pixel</h3>
+                <p class="project-description">
+                  A 3D-printing e-commerce website concept focused on attractive product presentation, a distinctive visual identity, and a modern shopping experience.
+                </p>
+                <div class="tech-stack-row">
+                  <span class="tech-tag">HTML &amp; CSS</span>
+                  <span class="tech-tag">E-commerce Layout</span>
+                  <span class="tech-tag">Responsive UI</span>
+                  <span class="tech-tag">3D Object Presentation</span>
+                  <span class="tech-tag">Visual Identity</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link-btn" title="Bloom Pixel project preview placeholder">
+                  <span>Project Link</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <span class="placeholder-badge">[Project URL Placeholder]</span>
+              </div>
+            </div>
+
+            <!-- Custom CSS Artwork: Crystalline 3D-Printed Form Floating on Light Pool -->
+            <div class="project-visual-pane" aria-hidden="true">
+              <div class="bloom-stage">
+                <div class="print-hud">
+                  <span>EXTRUDER: 215°C</span>
+                  <span>PLA: JADE TEAL</span>
+                  <span>LAYER: 0.12mm</span>
+                </div>
+                <div class="print-bed">
+                  <div class="print-pedestal"></div>
+                  <div class="print-sculpture">
+                    <div class="sculpture-facet"></div>
+                    <div class="sculpture-core"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: AI VIDEO EXPERIMENTS (Short-form Creative Content) -->
+          <article class="project-card">
+            <div class="project-info">
+              <div>
+                <div class="project-header-top">
+                  <span class="project-category">AI and Creative Content</span>
+                  <span class="project-flag">Video Series</span>
+                </div>
+                <h3 class="project-name">AI Video Experiments</h3>
+                <p class="project-description">
+                  A collection of short-form video experiments exploring AI concepts, technology, and curiosity-driven ideas through AI-assisted content creation and visual storytelling.
+                </p>
+                <div class="tech-stack-row">
+                  <span class="tech-tag">Generative AI</span>
+                  <span class="tech-tag">Visual Storytelling</span>
+                  <span class="tech-tag">AI-Assisted Content</span>
+                  <span class="tech-tag">Short-form Video</span>
+                  <span class="tech-tag">Tech Communication</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link-btn" title="AI Video Experiments channel placeholder">
+                  <span>Watch Video Series</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <span class="placeholder-badge">[Channel / Playlist Placeholder]</span>
+              </div>
+            </div>
+
+            <!-- Custom CSS Artwork: Vertical 9:16 Cinematic AI Reel -->
+            <div class="project-visual-pane" aria-hidden="true">
+              <div class="video-mockup-frame">
+                <div class="video-top-meta">
+                  <span>● 4K 60FPS</span>
+                  <span>AI REEL</span>
+                </div>
+                <div class="video-center-art">
+                  <div class="video-play-btn"></div>
+                  <div class="video-waveform">
+                    <span class="wave-bar wb-1"></span>
+                    <span class="wave-bar wb-2"></span>
+                    <span class="wave-bar wb-3"></span>
+                    <span class="wave-bar wb-4"></span>
+                    <span class="wave-bar wb-5"></span>
+                    <span class="wave-bar wb-6"></span>
+                  </div>
+                </div>
+                <div class="video-bottom-caption">
+                  <div style="font-weight: 600; color: #fff;">Exploring Generative Systems</div>
+                  <div class="scrubber-track">
+                    <div class="scrubber-progress"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: DEV CLUB WEBSITE (Community Portal) -->
+          <article class="project-card layout-reversed">
+            <div class="project-info">
+              <div>
+                <div class="project-header-top">
+                  <span class="project-category">Web Development and Community</span>
+                  <span class="project-flag">Community Hub</span>
+                </div>
+                <h3 class="project-name">Dev Club Website</h3>
+                <p class="project-description">
+                  A website created for a developer community, built as a practical way to explore frontend development, AI-assisted coding, and website deployment.
+                </p>
+                <div class="tech-stack-row">
+                  <span class="tech-tag">Frontend Development</span>
+                  <span class="tech-tag">AI-Assisted Coding</span>
+                  <span class="tech-tag">Website Deployment</span>
+                  <span class="tech-tag">Community Platform</span>
+                  <span class="tech-tag">Responsive UI</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreyasv0719" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <span>GitHub Profile &amp; Projects</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Custom CSS Artwork: Browser Mockup of Dev Community Platform -->
+            <div class="project-visual-pane" aria-hidden="true">
+              <div class="browser-mockup">
+                <div class="browser-bar">
+                  <div class="terminal-controls">
+                    <span class="term-dot term-dot-red"></span>
+                    <span class="term-dot term-dot-yellow"></span>
+                    <span class="term-dot term-dot-green"></span>
+                  </div>
+                  <div class="browser-url">https://devclub.community/hub</div>
+                </div>
+                <div class="browser-content">
+                  <div class="mock-hero-strip">
+                    <span class="mock-title-line">Developer Community Hub</span>
+                    <span class="mock-badge">ACTIVE SPRINT</span>
+                  </div>
+                  <div class="mock-grid-row">
+                    <div class="mock-mini-card">
+                      <strong>Code Sprints</strong>
+                      <div class="mock-code-line mcl-med"></div>
+                      <div class="mock-code-line mcl-short"></div>
+                    </div>
+                    <div class="mock-mini-card">
+                      <strong>Resources</strong>
+                      <div class="mock-code-line mcl-short"></div>
+                      <div class="mock-code-line mcl-med"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CURRENT FOCUS SECTION ("ALWAYS EXPLORING. ALWAYS IMPROVING.")
+         ======================================================================== -->
+    <section id="focus" class="focus-section" aria-labelledby="focus-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-eyebrow">Continuous Growth</div>
+          <h2 id="focus-heading" class="section-title">Always Exploring. Always Improving.</h2>
+          <p class="section-subtitle">
+            What I am actively learning, practicing, and exploring as a first-year Computer Science student.
+          </p>
+        </header>
+
+        <div class="focus-columns">
+
+          <!-- Left Column: Technical Fundamentals & AI Core -->
+          <div class="focus-group-card">
+            <h3 class="focus-group-title">Foundations &amp; AI Explorations</h3>
+            <ul class="focus-list">
+              <li class="focus-item">
+                <span class="focus-number">01</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Strengthening Python and programming fundamentals</h4>
+                  <p class="focus-text-desc">Deepening core syntax understanding, functions, recursion, and writing clean, structured code.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">02</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Improving problem-solving skills</h4>
+                  <p class="focus-text-desc">Practicing logic puzzles, edge-case debugging, and algorithmic thinking on coding challenges.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">03</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Exploring Artificial Intelligence and Machine Learning</h4>
+                  <p class="focus-text-desc">Studying foundational principles, data representations, and introductory machine learning architectures.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">04</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Learning more about Generative AI</h4>
+                  <p class="focus-text-desc">Investigating foundation models, prompting techniques, multimodal systems, and real-world utility.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Engineering Practice & Product Building -->
+          <div class="focus-group-card">
+            <h3 class="focus-group-title">Engineering Practice &amp; Product Ambitions</h3>
+            <ul class="focus-list">
+              <li class="focus-item">
+                <span class="focus-number">05</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Improving frontend development</h4>
+                  <p class="focus-text-desc">Mastering semantic HTML, modern CSS layouts, responsive design, and intuitive user experiences.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">06</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Building projects independently</h4>
+                  <p class="focus-text-desc">Taking self-directed ideas from initial sketches into functioning, self-coded software implementations.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">07</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Participating in hackathons and collaborating with other developers</h4>
+                  <p class="focus-text-desc">Connecting with fellow developers, learning from team dynamics, and rapid weekend prototyping.</p>
+                </div>
+              </li>
+
+              <li class="focus-item">
+                <span class="focus-number">08</span>
+                <div class="focus-text-wrap">
+                  <h4 class="focus-text-title">Exploring entrepreneurship and product development</h4>
+                  <p class="focus-text-desc">Understanding user needs, product design, and planning toward launching an impactful tech startup.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CONTACT SECTION & FOOTER (SERENE & INVITING)
+         ======================================================================== -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+      <div class="container">
+        
+        <div class="contact-card-main">
+          <div class="contact-grid">
+            
+            <!-- Left Info Area -->
+            <div class="contact-heading-box">
+              <div class="contact-eyebrow">Get In Touch</div>
+              <h2 id="contact-heading" class="contact-title">Have an idea?<br>Let's build something.</h2>
+              <p class="contact-lead">
+                I'm interested in connecting with developers, exploring new ideas, collaborating on projects, and learning from people building interesting things.
+              </p>
+              
+              <div class="contact-academic-badge">
+                <strong>Shreyas Verma</strong> · First-year B.Tech CSE (AI/ML)<br>
+                Newton School of Technology, ADYPU, Pune, Maharashtra, India
+              </div>
+            </div>
+
+            <!-- Right Interactive Communication Channels -->
+            <div class="contact-channels">
+
+              <!-- Email Link -->
+              <a href="mailto:your.email@example.com" class="channel-box" title="Send email to Shreyas Verma">
+                <div class="channel-left">
+                  <div class="channel-icon">@</div>
+                  <div class="channel-meta">
+                    <span class="channel-label">Email Address</span>
+                    <span class="channel-value">[YOUR GMAIL ADDRESS]</span>
+                  </div>
+                </div>
+                <div class="channel-arrow" aria-hidden="true">↗</div>
+              </a>
+
+              <!-- Phone Link -->
+              <a href="tel:+910000000000" class="channel-box" title="Call Shreyas Verma">
+                <div class="channel-left">
+                  <div class="channel-icon">#</div>
+                  <div class="channel-meta">
+                    <span class="channel-label">Contact Number</span>
+                    <span class="channel-value">[YOUR CONTACT NUMBER]</span>
+                  </div>
+                </div>
+                <div class="channel-arrow" aria-hidden="true">↗</div>
+              </a>
+
+              <!-- LinkedIn Link -->
+              <a href="https://www.linkedin.com/in/shreyas-v-297191330/" target="_blank" rel="noopener noreferrer" class="channel-box" title="Visit Shreyas Verma's LinkedIn Profile">
+                <div class="channel-left">
+                  <div class="channel-icon">in</div>
+                  <div class="channel-meta">
+                    <span class="channel-label">LinkedIn</span>
+                    <span class="channel-value">shreyas-v-297191330</span>
+                  </div>
+                </div>
+                <div class="channel-arrow" aria-hidden="true">↗</div>
+              </a>
+
+              <!-- GitHub Link -->
+              <a href="https://github.com/shreyasv0719" target="_blank" rel="noopener noreferrer" class="channel-box" title="Visit Shreyas Verma's GitHub Profile">
+                <div class="channel-left">
+                  <div class="channel-icon">&lt;/&gt;</div>
+                  <div class="channel-meta">
+                    <span class="channel-label">GitHub</span>
+                    <span class="channel-value">github.com/shreyasv0719</span>
+                  </div>
+                </div>
+                <div class="channel-arrow" aria-hidden="true">↗</div>
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- Minimalist Footer Statement -->
+          <footer class="site-footer">
+            <p class="footer-quote">"Designed with curiosity. Built one step at a time."</p>
+            <p class="footer-meta">
+              &copy; 2026 Shreyas Verma · Built with semantic HTML &amp; pure CSS · Pune, India
+            </p>
+          </footer>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
